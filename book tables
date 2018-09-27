@@ -1,0 +1,95 @@
+Create table Book(
+bookId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+bookName char(255) NOT NULL UNIQUE
+);
+
+Create table Semester(
+semesterId Integer primary key
+);
+
+Create table Instructor(
+instructorId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+name char(50)
+);
+
+Create table Departments(
+departmentName char(50) primary key
+);
+
+Create table Users(
+userId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+email VARCHAR(50) NOT NULL UNIQUE,
+password VARCHAR(255) NOT NULL,
+created_at dateTime DEFAULT CURRENT_TIMESTAMP
+);
+
+Create table Classes(
+classId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+classNumber char(50),
+departmentName char(50),
+foreign key (departmentName) references Departments(departmentName),
+unique(classNumber, departmentName)
+);
+
+
+Create table Offering(
+offeringId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+classId integer,
+instructorId integer,
+semesterId integer,
+section char(50),
+foreign key(classId) references Classes(classId) ON DELETE CASCADE,
+foreign key(instructorId) references Instructor(instructorId),
+foreign key(semesterId) references Semester(semesterId),
+unique(classID, instructorId, semesterId, section)
+);
+
+Create table RequiredBook(
+bookId integer NOT NULL,
+classId integer NOT NULL,
+foreign key (bookId) references Book(bookId) ON DELETE CASCADE,
+foreign key (classId) references Offering(classId) ON DELETE CASCADE,
+unique(bookId, classId)
+);
+
+
+Create table UsedBook(
+saleId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+userId integer NOT NULL,
+bookId integer NOT NULL,
+price integer,
+description char(255),
+timeStamp dateTime DEFAULT CURRENT_TIMESTAMP,
+foreign key (userId)references Users(userId) ON DELETE CASCADE,
+foreign key (bookId) references Book(bookId) ON DELETE CASCADE
+);
+
+Create table WishList(
+saleId integer NOT NULL,
+userId integer NOT NULL,
+foreign key (userId)references Users(userId) ON DELETE CASCADE,
+foreign key (saleId)references UsedBook(saleId) ON DELETE CASCADE,
+unique(saleId, userId)
+);
+
+CREATE table Messages(
+messageId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+sendId integer,
+recieveId integer,
+message char(255),
+foreign key(sendId) REFERENCES Users(userId) ON DELETE CASCADE,
+foreign key(recieveId) REFERENCES Users(userId) ON DELETE CASCADE,
+timeStamp dateTime DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE table NewBooks(
+newId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+newBookId integer,
+newOfferingId integer,
+newUserId integer,
+newSaleId integer,
+foreign key(newBookId) REFERENCES Book(bookId) ON DELETE CASCADE,
+foreign key(newOfferingId) REFERENCES Offering(offeringId) ON DELETE CASCADE,
+foreign key(newUserId) REFERENCES Users(userId) ON DELETE CASCADE,
+foreign key(newSaleId) REFERENCES UsedBook(saleId) ON DELETE CASCADE
+)

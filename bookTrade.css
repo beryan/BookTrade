@@ -1,0 +1,458 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+  outline: none;
+}
+
+body {
+  font-family: "georgia";
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.bg {
+  background: url("city.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
+.book {
+  background: url("book.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  color: white;
+  background: #A6192E;
+  margin: 0;
+  z-index: 1;
+}
+
+.header h1 {
+  font-size: 40px;
+  font-family: 'georgia';
+  text-shadow: 2px 2px 4px rgba(0,0,0,1);
+  padding: 35px;
+  margin: 0;
+}
+
+.login {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 6px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  font-family: 'georgia';
+  font-size: 13px;
+  padding: 7px 0px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  margin-left: 0px;
+  vertical-align:middle;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #111;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button:active {
+  box-shadow: none;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 15px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 12px 14px;
+  text-decoration: none;
+  font-family: 'georgia';
+  font-size: 13px;
+}
+
+.topnav a:hover {
+  background-color: #111;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.topnav a:active {
+  box-shadow: none;
+}
+
+.active {
+  pointer-events: none;
+  background-color: #111;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 10px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    width: 60%;
+    padding: 20px;
+    margin: 30px auto;
+}
+
+.about {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    width: 80%;
+    padding: 20px;
+    margin: 30px auto;
+}
+
+.chart {
+  display: block;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 5px;
+  border: 1px solid #ccc
+}
+
+.searchBar {
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  padding: 3px;
+}
+
+.results {
+  border: 1px solid #ccc; /*111*/
+  border-radius: 4px;
+  background-color: #f2f2f2; /*333*/
+  padding: 20px;
+  margin: 30px;
+}
+
+.section {
+  border: 1px solid #851425;
+  border-radius: 4px;
+  background-color: #A6192E;
+  color: white;
+  padding: 20px;
+}
+
+.card {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  padding: 20px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.page {
+  background: linear-gradient(
+    to right,
+    lightgrey 0%,
+    lightgrey 25%,
+    white 25%,
+    white 100%
+  );
+  overflow: auto;
+}
+
+.contacts {
+    position: absolute;
+    left: 0;
+    width: 25%;
+    overflow: auto;
+}
+
+.messages {
+    position: absolute;
+    right: 0;
+    width: 75%;
+    padding: 5px;
+    padding-bottom: 55px;
+    overflow: auto;
+}
+
+.contact {
+    width: 100%;
+    text-align: left;
+}
+
+.message {
+    position: relative;
+    border: 2px solid grey;
+    background-color: lightgrey;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+    min-width: 200px;
+    max-width: 600px;
+    text-align: left;
+    float: left;
+}
+
+.darker {
+    border-color: #A6192E; /*#ccc;*/
+    background-color: #c81e37;
+    color: white;
+    text-align: right;
+    float: right;
+}
+
+.message::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.time-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    float: right;
+    color: #aaa;
+}
+
+.time-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    float: left;
+    color: #999;
+}
+
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 75%;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    padding: 2px;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=text], input[type=email], input[type=password] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=number], select {
+  max-width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  width: 50%;
+  padding: 10px;
+  resize: none;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, input[type=number]:focus, select:focus, textarea:focus {
+    outline: none;
+    border: 1px solid #A6192E;
+}
+
+input[type=submit] {
+    background-color: #A6192E;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=reset] {
+    background-color: #A6192E;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+}
+
+input[type=submit]:hover, input[type=reset]:hover {
+    background-color: #851425;
+}
+
+.error {
+  display: hidden;
+  font-family: georgia;
+  font-family: 12px;table
+  color: #A6192E;
+}
+
+.instructions {
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  width: 75%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 900px) {
+  .col-25, .col-75 {
+    width: 100%;
+    margin-top: 0;
+  }
+  input[type=submit] {
+    width: 100%;
+    float: none;
+  }
+  input[type=reset], textarea {
+    width: 100%;
+    float: none;
+    margin-bottom: 10px;
+  }
+  .submit {
+      margin-top: 5px;
+  }
+  .message {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(.active) {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .header h1 {
+    font-size: 32px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .button {
+    width: 110px;
+    padding: 7px, 0px;
+    font-size: 12px;
+  }
+  .container, .about, .results {
+    width: auto;
+    margin: 5px;
+  }
+  .chart {
+    width: auto;
+  }
+  .results, .section, .card {
+    padding: 15px;
+  }
+  .message {
+    width: 200px;
+  }
+  .contacts, .messages {
+    position: relative;
+    width: 100%;
+  }
+  .footer {
+    width: 100%
+  }
+  .page {
+    background: white;
+  }
+  body, input, .container, .about, .results {
+    font-size: 14px;
+  }
+}
